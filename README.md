@@ -1,4 +1,8 @@
-# HAPROXY WITH TLS1.3, HTTP/2
+# HAProxying with TLS1.3, HTTP/1 & HTTPS
+
+- HAProxy as TCP Proxy and HTTP Proxy (Layer 4 & Layer 7)
+- ACL (Acess Control Lists)
+- TLS Termination, TLS Pass through
 
 ### Spin up HAPROXY backends
 
@@ -35,3 +39,10 @@
 - The browser connects via TCP connection and ends at the proxy
 - Haproxy now has the ability to funnel and load balance
 - Every request is a new request to the proxy; It treats requests as stateless as possible
+
+### HAPROXY running in HTTPS mode
+
+- Register a domain and point it to your router's IP address
+- Install Letsencrypt
+- sudo certbot certonly --standalone
+- sudo cat [private-key] [public-key] | sudo tee /[some-directory]/haproxy.pem
